@@ -1,0 +1,68 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default         steadyState;
+}
+
+gradSchemes
+{
+    default         cellMDLimited Gauss linear 0.5;
+}
+
+divSchemes
+{
+    default         bounded Gauss linear;
+    div(phi,U)	    bounded Gauss linearUpwind grad(U);
+    div(phi,k)	    bounded Gauss linearUpwind grad(U);
+    div(phi,epsilon) bounded Gauss linearUpwind grad(U);
+    div((nuEff*dev(T(grad(U))))) bounded Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         none;
+    laplacian(nuEff,U) bounded Gauss linear corrected;
+    laplacian((1|A(U)),p_rgh) bounded Gauss linear corrected;
+    laplacian((1|A(U)),p) bounded Gauss linear corrected;
+    laplacian(kappaEff,T) bounded Gauss linear corrected;
+    laplacian(DkEff,k) bounded Gauss linear corrected;
+    laplacian(DepsilonEff,epsilon) bounded Gauss linear corrected;
+    laplacian(DREff,R) bounded Gauss linear corrected;
+    laplacian(1,p)  bounded Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    p		    ;
+    p_rgh           ;
+}
+
+
+// ************************************************************************* //

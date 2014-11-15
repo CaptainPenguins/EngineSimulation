@@ -1,0 +1,5 @@
+Minimum Combustor Cross-Sectional Area: 0.00469
+Altitude: 8033.6 ft AGL
+Max Mach: 0.59
+Average O/F: 5.5
+Total Impulse: 9616.4 Ns

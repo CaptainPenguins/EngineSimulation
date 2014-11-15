@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.1.1                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      kappat;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -1 0 0 0 0];
+
+internalField   uniform 9.06e-6;
+
+boundaryField
+{
+
+inlet
+	{
+        type            fixedValue; 
+	value		9.07e-6;
+	}
+
+	outlet
+	{
+		type	zeroGradient;
+	}
+
+	wall
+	{
+        type            kappatJayatillekeWallFunction;
+        Prt             0.8;
+        value           uniform 9.06e-6;
+	}
+
+	heatedWall
+	{
+        type            kappatJayatillekeWallFunction;
+        Prt             0.8;
+        value           uniform 9.06e-6; 
+	}
+
+	frontAndBack
+	{
+		type	empty;	
+	}
+}
+
+
+// ************************************************************************* //
