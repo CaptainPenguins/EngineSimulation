@@ -38,3 +38,13 @@ else if mL <= 0.1 %When mass of liquid is less than 50g, stop burn
         mL = 0;
     end
 end
+
+
+
+
+
+
+
+
+
+

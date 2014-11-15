@@ -1,4 +1,4 @@
-function [T_cc, Tad_Count] = ChamberTemperature(P_cc, n, T_ad_guess, Tad_Count)
+function [T_cc] = ChamberTemperature(P_cc, n, T_ad_guess)
 %%%%% Created by J. Osborne, Oct 2013
 
 %%% THIS PROGRAM WILL CALCULATE THE COMBUSTION CHAMBER TEMPERATURE OF A
@@ -52,8 +52,6 @@ R = n(3) * interp1(Cp_T, Cp_CO2_ref, T_ad_guess) + n(4) * interp1(Cp_T, Cp_H2O_r
 T_ad = (H_reactants - Q)/R + 298;
 
 while abs((T_ad - T_ad_guess)/(T_ad_guess)) > tolerance
-    
-    Tad_Count = Tad_Count + 1;
     
     T_ad_guess = T_ad;
     

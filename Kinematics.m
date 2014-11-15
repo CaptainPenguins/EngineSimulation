@@ -1,7 +1,5 @@
 function [a, v, h] = Kinematics(m, m0, T, D, v0, h0, dt)
 
-%[SUSPECT! ADD IN REVISED TRAJECTORY MODEL THAT CONSIDERS DRAG]
-
 phi = 85; %Launch angle
 
 %% Constants

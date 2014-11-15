@@ -71,7 +71,7 @@ for i = 1:length(x)
         end
     end
 
-    theta_new(i) = mod(atan2(y_new(i), x_new(i)), 2*pi)  ;   
+    theta_new(i) = mod(atan2(y_new(i), x_new(i)), 2*pi);     
     
     %%% Stop at ID %%%
     

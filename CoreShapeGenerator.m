@@ -13,7 +13,6 @@ function [x,y] = CoreShapeGenerator(ri, R_s, N_s, r_ic, r_s, C)
 %r_s = Radial distance to center of spoke (m)
 %C = Geometry generation selector (0 = wagon wheel, 1 = circle)
 
-%[SUSPECT! Wagonwheel geometry may not be appropriate for optimal performance]
 if C == 0
     
     

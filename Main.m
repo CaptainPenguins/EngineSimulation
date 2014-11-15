@@ -1,6 +1,6 @@
 clear all; close all;
 
-%% This is the main program for the 2014-15 Bia II engine simulation. A number of improvements have been made over last year's code, including:
+%% This is the main program for the 2013-14 Bia II engine simulation. A number of improvements have been made over last year's code, including:
 
 % - Time stepped calculation of combusution chamber temperature
 % - 2D regression-rate data for wagon wheel fuel core geometry
@@ -16,12 +16,10 @@ clear all; close all;
 % - Increase in nozzle throat diameter due to erosion
 
 fprintf('---------------  NEW ENGINE SIMULATION --------------\n');
-fprintf('WARNING: THIS CODE REQUIRES ABOUT 5 HOURS TO COMPLETE\n'); 
+fprintf('WARNING: THIS CODE REQUIRES ABOUT 5 HOURS TO COMPILE\n'); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Inputs: TMM, T_Ox, T_a, T_f, D_o, D_th, D_e, D_p, D_Ii, D_i
-% Output: T_rho, rhoL_ref, rhoF, Ac0, CTr, m_F
-% Functions called: CoreShapeGenerator.m, explicit.m
+%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN PROGRAM INPUTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 TMM = 1; %Time marching method, 1 = 1st-order explicit, 2 = 2nd-order explicit, 3 = implicit

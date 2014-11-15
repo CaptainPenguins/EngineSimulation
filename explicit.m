@@ -1,6 +1,4 @@
 function [D, v, a, Pcc, Tcc, Cd, Dh, Th, MM, I, MOF] = explicit(ri, D_th0, D_e, T_a0, D_o, D_Ii, D_p, D_i, N_p, l_c, r0, m0, TOx0, VOx, FF, x, y, Ac0, rhoF, mF0, l_d, CTr, T_f, L_p, Dh, e)
-%%list out variables in xlsx file
-
 
 %% Set initial conditions %%
 dt = 0.001; %I have found that if dt>~0.001 the code will crash. Total simulation time is around 5 hours
@@ -92,6 +90,9 @@ while L(i) > 0 && BO == 0
     [a(i), v(i+1), h(i+1)] = Kinematics(m(i+1), m(i), Th(i), D(i), v(i), h(i), dt);
     t(i+1) = t(i) + dt;
     
+    Th(i)*0.225;
+    Pcc(i)/6894 ;   
+    
     i = i+1;   %Step counter
     plot(x0/0.0254, y0/0.0254,'b', x/0.0254 ,y/0.0254, 'r', x_wall/0.0254, y_wall/0.0254, 'k'); axis equal; xlabel('x-position (in)'); ylabel('y-position (in)');
     xlim([-ri*1.25/0.0254 ri*1.25/0.0254]); ylim([-ri*1.25/0.0254 ri*1.25/0.0254]);
@@ -168,11 +169,6 @@ legend('Choked Flow Rate', 'Fuel Mass Flow Rate', 'Oxidizer Mass Flow Rate');
 
 set(gcf,'units','pixel');set(gcf,'position',[0,0,600,600]);
 set(gcf,'papersize',[800,800]);
-
-% Export data to Excel spreadsheet
-% T = table(t, Pcc/6894, Tcc - 273, OF, rdot); % Time (s), Combustion Chamber Pressure (psia), Combustion Chamber Temprature (C), Oxidiser-Fuel Ratio, Regression Rate (mm/s)
-% filename = 'testrundata.xlsx';
-% writeTable(T, filename);
 
 % figure; 
 % plot(0+(t_N/N)/2:t_N/N:t_N - (t_N/N)/2, Tn-273); xlabel('X-position (m)'); ylabel('Temperature (C)'); 

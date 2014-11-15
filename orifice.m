@@ -1,6 +1,6 @@
 function [mdot, P1] = orifice(PT, P2, D1, D2, N, L_p, Dh, rho, V, e) 
 
-k = 1.31; %Specific heat ratio for N2O
+k = 1.4; %Specific heat ratio 
 
 A2 = N * pi/4 * D2^2; %Orifice Area
 
