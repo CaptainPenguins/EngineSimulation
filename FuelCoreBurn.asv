@@ -27,23 +27,12 @@ theta = 0:0.01:2*pi;
 r = zeros(length(theta), 1); 
 x = zeros(size(r)); y = zeros(size(r));
 
-% // debug message kindly supplied by eric
-%{
-disp('hello')
-csvwrite('data1.csv', theta0);
-csvwrite('data2.csv', r0);
-csvwrite('data3.csv', theta);
+t('data1.txt', theta0);
+fprintf('data2.txt', r0);
+fprintf('data2.txt', theta);
 
-disp('before')
-disp(size(theta0))
-theta0 = unique(theta);
-disp('after')
-disp(size(theta0))
-%}
-
-r = interp1(theta0, r0', theta, 'cubic'); 
 for i = 1:length(theta)
-    
+    r(i) = interp1(theta0, r0, theta, 'cubic'); 
     x(i) = r(i)*cos(theta(i)); 
     y(i) = r(i)*sin(theta(i)); 
 end

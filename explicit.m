@@ -53,7 +53,7 @@ while L(i) > 0 && BO == 0
     
     r = r0 + (rand(1,1) - 0.5)*0.05; %Add a 5% fluctuating component to the paraffin-aluminum composition
     D_th(i) = D_th0*(1+fD_th/100*i*dt); %Accounts for erosion of nozzle throat
-    
+
     % Calculate Ambient Conditions
     [T_a(i) P_a(i) rho_a(i), mu_a(i)] = atmosphericProperties(h(i), T_a0, h(1));
     

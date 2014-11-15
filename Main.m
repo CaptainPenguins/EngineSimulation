@@ -44,7 +44,7 @@ W_s = 0.44 * 0.0254; %Width of spoke (m)
 N_s = 10; %Number of spokes
 R_ci = 1.25 * 0.0254; %Radius of inner core (m)
 R_s = 1.6 * 0.0254; %Radius of spoke length (m)
-C = 0; %0 = spokes, 1 = circle
+C = 1; %0 = spokes, 1 = circle
 
 N_p = 20; %Number of injector pores
 
